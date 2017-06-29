@@ -12,11 +12,12 @@ $(document).ready(function(){
 		    alert("Debes escribir la tarea");
 	    }else{
 	    	//alert(name);
-	    	$("#lista").append("<div><input type='checkbox' id='test" + cont +"'/><label for='test" + cont + "'>" + "<p>" + name +"</p>" + "</label><button class='remove'><i class='fa fa-trash' aria-hidden='true'></i></button>");
+	    	$("#lista").append("<div class='task-area'><input type='checkbox' id='test" + cont +"'/><label for='test" + cont + "'>" + "<p>" + name +"</p>" + "</label><button class='remove'><i class='fa fa-trash' aria-hidden='true'></i></button></div>");
 	    	cont++;
         console.log(cont);
         localStorage.setItem("on_load_counter", cont);
-        name = "";
+        $("#tarea-nueva").val("");
+        
 	    }
     }
   });
@@ -26,6 +27,17 @@ $(document).ready(function(){
         	var ide = this.id;
             console.log(this.id + ' is checked  ');
             $(this).parent().appendTo("#completed");
+            //$("#completed").append($(this).parent().clone());
+            //$(this).parent().empty();
+
+        } else {
+            console.log(this.id + ' is unchecked');
+        }
+    });
+    $('#completed').on("change", ":checkbox", function () {
+        if (this.checked) {
+          var ide = this.id;
+            console.log(this.id + ' is checked  ');
             //$("#completed").append($(this).parent().clone());
             //$(this).parent().empty();
 
