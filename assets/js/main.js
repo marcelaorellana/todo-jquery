@@ -49,7 +49,7 @@ $(document).ready(function(){
 
   $(document).on("click", ".remove",function(){
     $(this).parent().empty();
-    localStorage.removeItem(key);
+    //localStorage.clear();
   });
 
     //efectos del input
@@ -63,7 +63,10 @@ $(document).ready(function(){
     $(this).parent().removeClass("is-active");
   });
 
-
+$(document).on("click", ".clear",function(){
+    localStorage.clear();
+    $('.task-area').empty();
+  });
 
 
   for(var i = 0; i < localStorage.length; i++){
