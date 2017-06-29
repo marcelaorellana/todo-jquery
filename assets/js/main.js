@@ -1,8 +1,9 @@
 $(document).ready(function(){
 	var cont = 1;
   $(document).keypress(function(e){
-    e.preventDefault();
+   
     if(e.which == 13) {
+       e.preventDefault();
       var name = $("#tarea-nueva").val();
       if(name == ""){
 		    alert("Debes escribir tu nombre y el ensaje");
@@ -18,13 +19,17 @@ $(document).ready(function(){
         if (this.checked) {
         	var ide = this.id;
             console.log(this.id + ' is checked  ' +$(this).siblings().find("p").text() );
-            //var str = $( "p:first" ).text();
-            //$( "p:last" ).html( str );
-            $("#completed").append($(this).parent().clone());
+            $(this).parent().appendTo("#completed");
+            //$("#completed").append($(this).parent().clone());
+            //$(this).parent().empty();
 
         } else {
             console.log(this.id + ' is unchecked');
         }
+    });
+
+    $(document).on("click", ".remove",function(){
+      $(this).parent().empty();
     });
 
 });

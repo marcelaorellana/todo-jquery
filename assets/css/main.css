@@ -8,3 +8,6 @@ header{
 .tarjeta{
 	background-color: lightblue;
 }
+input{
+	z-index: 9;
+}
